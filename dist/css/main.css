@@ -1,0 +1,34 @@
+.container {
+  max-width: 1312px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+.cards {
+  padding: 72px 0;
+}
+.cards__layout {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.card {
+  position: relative;
+}
+.card__fav {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  cursor: pointer;
+}
+.card__fav svg {
+  width: 100%;
+  height: 100%;
+}
+.card__image {
+  padding: 20px;
+  height: 240px;
+  display: grid;
+  place-items: center;
+}
