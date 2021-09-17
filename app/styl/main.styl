@@ -1,18 +1,33 @@
+tr()
+	transition .24s
+
+body
+	font-family: 'Roboto', sans-serif;
+
 .container
 	max-width 1312px
 	padding 0 16px
 	margin: 0 auto
 
+.title
+	font-size: 24px
+	line-height: (28 / 24)
+
 .cards
 	padding: 72px 0
 	
+	&__title
+		margin-bottom: 24px
+	
 	&__layout
 		display grid
-		gap 20px
+		gap 32px 20px
 		grid-template-columns repeat(4, 1fr)
 
 .card
 	position relative
+	display flex
+	flex-direction column
 	
 	&__fav
 		width: 24px
@@ -25,10 +40,124 @@
 		svg
 			width 100%
 			height 100%
+			fill transparent
+			stroke #525252
+			tr()
+		
+		&_active,
+		&:hover
+			svg
+				stroke #FF0D55
 	
 	&__image
 		padding 20px
 		height: 240px
 		display grid
 		place-items center
+	
+	&__body
+		display flex
+		flex-direction column
+		flex 1
+	
+	&__price
+		font-weight: 500
+		font-size: 20px
+		line-height: (24 / 20)
+		margin-bottom: 8px
+		color #141414
+		
+		&_active
+			color #FF0D55
+		
+		span
+			font-size: 16px
+			line-height: (20 / 16)
+			color #8F8F8F
+			font-weight: 400
+			position: relative;
+			
+			&:after
+				content ''
+				display block
+				top: 50%
+				transform rotate(-15deg)
+				position absolute
+				left: 0
+				width 100%
+				height: 1px
+				background: #FF0D55
+	
+	
+	&__title
+		margin-bottom: 20px
+		flex 1
+		
+		a
+			font-size: 16px
+			color #525252
+			line-height: (20 / 16)
+			text-decoration: none;
+			tr()
+			
+			&:hover
+				color #4A6EED
+	
+	&__tools
+		&_active
+		
+			.card__button
+				display none
+			
+			.card__counter
+				display flex
+	
+	&__button
+		text-align center
+		
+		a
+			height: 44px
+			display inline-grid
+			place-content center
+			background: #1A45DB
+			color #fff
+			font-weight: 500
+			font-size: 16px
+			text-decoration none
+			padding: 0 40px
+			border-radius: 3px
+			tr()
+			
+			&:hover
+				background: #173DC2
+				
+			&:active
+				background: #1435A8
 
+.counter
+	justify-content: center;
+	align-items: center
+	gap 17px
+	display none
+	
+	&__button
+		background: #F8F8F8
+		height: 44px
+		width: 44px
+		display grid
+		place-content center
+		border-radius: 3px
+		cursor: pointer;
+		
+		svg
+			width: 24px;
+			height: 24px
+
+@media (max-width: 991.98px)
+	.cards__layout
+		grid-template-columns repeat(2, 1fr)
+
+
+@media (max-width: 575.98px)
+	.cards__layout
+		grid-template-columns 1fr

@@ -1,18 +1,30 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
 .container {
   max-width: 1312px;
   padding: 0 16px;
   margin: 0 auto;
 }
+.title {
+  font-size: 24px;
+  line-height: 1.166666666666667;
+}
 .cards {
   padding: 72px 0;
 }
+.cards__title {
+  margin-bottom: 24px;
+}
 .cards__layout {
   display: grid;
-  gap: 20px;
+  gap: 32px 20px;
   grid-template-columns: repeat(4, 1fr);
 }
 .card {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .card__fav {
   width: 24px;
@@ -25,10 +37,121 @@
 .card__fav svg {
   width: 100%;
   height: 100%;
+  fill: transparent;
+  stroke: #525252;
+  transition: 0.24s;
+}
+.card__fav_active svg,
+.card__fav:hover svg {
+  stroke: #ff0d55;
 }
 .card__image {
   padding: 20px;
   height: 240px;
   display: grid;
   place-items: center;
+}
+.card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.card__price {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  color: #141414;
+}
+.card__price_active {
+  color: #ff0d55;
+}
+.card__price span {
+  font-size: 16px;
+  line-height: 1.25;
+  color: #8f8f8f;
+  font-weight: 400;
+  position: relative;
+}
+.card__price span:after {
+  content: '';
+  display: block;
+  top: 50%;
+  transform: rotate(-15deg);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #ff0d55;
+}
+.card__title {
+  margin-bottom: 20px;
+  flex: 1;
+}
+.card__title a {
+  font-size: 16px;
+  color: #525252;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: 0.24s;
+}
+.card__title a:hover {
+  color: #4a6eed;
+}
+.card__tools_active .card__button {
+  display: none;
+}
+.card__tools_active .card__counter {
+  display: flex;
+}
+.card__button {
+  text-align: center;
+}
+.card__button a {
+  height: 44px;
+  display: inline-grid;
+  place-content: center;
+  background: #1a45db;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 0 40px;
+  border-radius: 3px;
+  transition: 0.24s;
+}
+.card__button a:hover {
+  background: #173dc2;
+}
+.card__button a:active {
+  background: #1435a8;
+}
+.counter {
+  justify-content: center;
+  align-items: center;
+  gap: 17px;
+  display: none;
+}
+.counter__button {
+  background: #f8f8f8;
+  height: 44px;
+  width: 44px;
+  display: grid;
+  place-content: center;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.counter__button svg {
+  width: 24px;
+  height: 24px;
+}
+@media (max-width: 991.98px) {
+  .cards__layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 575.98px) {
+  .cards__layout {
+    grid-template-columns: 1fr;
+  }
 }
